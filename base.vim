@@ -1,9 +1,7 @@
 ""  ------------------------------------------------------------
-" *  @file       foundation.vim
-" *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *
-" Copyright © 2014 Jim Zhan.
+" Copyright © 2015 Jim Zhan.
 " ------------------------------------------------------------
 " Licensed under the Apache License, Version 2.0 (the "License");
 " you may not use this file except in compliance with the License.
