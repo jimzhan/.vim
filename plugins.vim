@@ -79,7 +79,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_enable_auto_cd = 1
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_safe_mode_by_default = 1
+  let g:vimfiler_safe_mode_by_default = 0
   let g:vimfiler_ignore_pattern = '\%(.DS_Store\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
   let g:vimfiler_data_directory =  g:dotvim.tempdir . "vimfiler"
 
@@ -90,8 +90,8 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_explorer_columns = ''
   let g:vimfiler_tree_indentation = 3
   let g:vimfiler_file_icon = ' '
-  let g:vimfiler_marked_file_icon = '*'
-  let g:vimfiler_readonly_file_icon = '[O]'
+  let g:vimfiler_marked_file_icon = '✩'
+  let g:vimfiler_readonly_file_icon = '○'
 
   autocmd FileType vimfiler setlocal nonumber
   autocmd FileType vimfiler setlocal norelativenumber
@@ -100,7 +100,8 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
     \ "\<Plug>(vimfiler_expand_tree)",
     \ "\<Plug>(vimfiler_edit_file)")
 
-  nnoremap <C-o> :VimFilerExplorer -buffer-name=Explorer -parent -toggle -split -simple -winwidth=30 -no-quit<CR>
+  nnoremap <C-o> :VimFilerExplorer -buffer-name=Explorer -parent -toggle
+                      \ -status -split -simple -winwidth=30 -no-quit<CR>
   autocmd FileType vimfiler nunmap <buffer> <C-l>
   autocmd FileType vimfiler nmap <buffer> <C-R>  <Plug>(vimfiler_redraw_screen)
 "}}}
