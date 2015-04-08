@@ -48,11 +48,11 @@ NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{{{
   let g:unite_source_rec_max_cache_files=5000
   call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
 
-  "nnoremap <Leader>y  :Unite history/yank<CR>
   nnoremap <Leader>/  :Unite grep:.<cr>
+  nnoremap <Leader>f  :Unite -buffer-name=files buffer file_mru bookmark file<CR>
+  "nnoremap <Leader>y  :Unite history/yank<CR>
   "nnoremap <Leader>s  :Unite -quick-match buffer<CR>
   "nnoremap <Leader>n  :Unite -buffer-name=New -profile-name=files file/new<CR>
-  nnoremap <Leader>f  :Unite -buffer-name=files buffer file_mru bookmark file<CR>
 
   autocmd FileType unite call s:unite_my_settings()
   function! s:unite_my_settings()
@@ -76,7 +76,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_safe_mode_by_default = 0
-  let g:vimfiler_ignore_pattern = '\%(.DS_Store\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
+  let g:vimfiler_ignore_pattern = '\%(.DS_Store\|build\|node_modules\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
   let g:vimfiler_data_directory =  g:dotvim.tempdir . "vimfiler"
   let g:vimfiler_force_overwrite_statusline = 0
 
@@ -224,6 +224,8 @@ NeoBundle 'scrooloose/syntastic' "{{{
   endif
   let g:syntastic_javascript_checkers = ['jsxhint']
 "}}}
+
+
 " ---------------------------------------------------------------------------
 "  Editing:
 "   * Emmet: previously known as Zen Coding is a web-developer’s toolkit that
@@ -269,6 +271,7 @@ NeoBundle 'sjl/gundo.vim' "{{{
   let g:gundo_right = 1
   nnoremap <Leader>u :GundoToggle<CR>
 "}}}
+
 
 " ---------------------------------------------------------------------------
 "  Authocomplete: Autocomplete & Code Snippets/Templates
