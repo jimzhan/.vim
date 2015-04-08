@@ -39,12 +39,8 @@ fi
 if [ ! -d $vim ]; then
     info "Setting up Vim..."
     git clone $repos $vim
-    success "Vim fetched, starting up..."
-    vim
+    success "Vim is ready to launch now"
 else
     cd $vim && git pull -v
     success "Vim is now updated"
 fi
-
-ln -s $vim/vimrc  $HOME/.vimrc
-ln -s $vim/gvimrc $HOME/.gvimrc

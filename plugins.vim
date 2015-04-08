@@ -259,9 +259,13 @@ function! Multiple_cursors_after()
   echo 'Enabled autocomplete'
 endfunction
 "}}}
+"
 NeoBundle 'ntpeters/vim-better-whitespace' "{{{
+  let g:better_whitespace_enabled = 1
   let g:better_whitespace_filetypes_blacklist=['vimfiler']
+  "highlight ExtraWhitespace ctermbg=166
 "}}}
+"
 NeoBundle 'sjl/gundo.vim' "{{{
   let g:gundo_right = 1
   nnoremap <Leader>u :GundoToggle<CR>
