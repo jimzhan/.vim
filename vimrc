@@ -154,8 +154,8 @@ nmap <leader>9 :set foldlevel=9<CR>
 " System Clipboard
 " ----------------
 vmap <Leader>y "+y
+map  <Leader>x "+x
 map  <Leader>p "+p
-map  <Leader>d "+d
 
 
 " ---------------------------------------------------------------------------
