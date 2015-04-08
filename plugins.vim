@@ -230,6 +230,7 @@ NeoBundle 'scrooloose/syntastic' "{{{
     let g:syntastic_enable_balloons = 1
   endif
   let g:syntastic_javascript_checkers = ['jsxhint']
+  let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 "}}}
 " ---------------------------------------------------------------------------
 "  Editing:
