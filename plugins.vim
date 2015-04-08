@@ -70,8 +70,6 @@ NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{{{
     let g:unite_source_grep_recursive_opt = ''
   endif
 "}}}
-
-
 " ---------------------------------------------------------------------------
 NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_enable_auto_cd = 1
@@ -146,9 +144,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 " ---------------------------------------------------------------------------
 NeoBundle 'bling/vim-airline' "{{
   let g:airline_powerline_fonts=1
-  "let g:airline_theme='badwolf'
+  let g:airline_theme='base16'
   let g:airline#extensions#tabline#enabled = 1
-  " Show just the filename
   let g:airline#extensions#tabline#fnamemod = ':t'
 "}}
 
@@ -195,9 +192,9 @@ NeoBundle 'fatih/vim-go' "{{
 " ---------------------------------------------------------------------------
 " Markdown
 " ---------------------------------------------------------------------------
-NeoBundle 'tpope/vim-markdown' " {{
+NeoBundle 'tpope/vim-markdown' " {{{
   au BufRead,BufNewFile *.md set filetype=markdown
-"}}
+"}}}
 " ---------------------------------------------------------------------------
 " HTML5 + Jinja
 " ---------------------------------------------------------------------------
@@ -270,6 +267,10 @@ endfunction
 "}}}
 NeoBundle 'ntpeters/vim-better-whitespace' "{{{
   let g:better_whitespace_filetypes_blacklist=['vimfiler']
+"}}}
+NeoBundle 'sjl/gundo.vim' "{{{
+  let g:gundo_right = 1
+  nnoremap <Leader>u :GundoToggle<CR>
 "}}}
 
 " ---------------------------------------------------------------------------
