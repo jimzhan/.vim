@@ -40,6 +40,7 @@ if [ ! -d $vim ]; then
     info "Setting up Vim..."
     git clone $repos $vim
     success "Vim fetched, starting up..."
+    vim
 else
     cd $vim && git pull -v
     success "Vim is now updated"
