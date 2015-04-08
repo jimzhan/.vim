@@ -82,6 +82,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_safe_mode_by_default = 0
   let g:vimfiler_ignore_pattern = '\%(.DS_Store\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
   let g:vimfiler_data_directory =  g:dotvim.tempdir . "vimfiler"
+  let g:vimfiler_force_overwrite_statusline = 0
 
   let g:vimfiler_tree_leaf_icon = ''
   let g:vimfiler_tree_opened_icon = '▾'
@@ -95,6 +96,8 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
 
   autocmd FileType vimfiler setlocal nonumber
   autocmd FileType vimfiler setlocal norelativenumber
+  autocmd FileType vimfiler nunmap <buffer> <C-l>
+  autocmd FileType vimfiler nmap <buffer> <C-R>  <Plug>(vimfiler_redraw_screen)
 
   nmap <silent><buffer><expr> <Cr> vimfiler#smart_cursor_map(
     \ "\<Plug>(vimfiler_expand_tree)",
@@ -102,21 +105,15 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
 
   nnoremap <C-o> :VimFilerExplorer -buffer-name=Explorer -parent -toggle
                       \ -status -split -simple -winwidth=30 -no-quit<CR>
-  autocmd FileType vimfiler nunmap <buffer> <C-l>
-  autocmd FileType vimfiler nmap <buffer> <C-R>  <Plug>(vimfiler_redraw_screen)
 "}}}
 
 
 " ---------------------------------------------------------------------------
 "  Themes: Color Themes
 " ---------------------------------------------------------------------------
-NeoBundle 'tomasr/molokai'
-NeoBundle 'chriskempson/Vim-Tomorrow-Theme'
-NeoBundle 'chriskempson/base16-vim' "{{
-  let g:rehash256=1
-  let g:molokai_original = 1
+NeoBundle 'chriskempson/base16-vim' "{{{
   let base16colorspace=256
-"}}
+"}}}
 NeoBundle 'altercation/vim-colors-solarized'
 
 
@@ -124,7 +121,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 "  GIT Manager: Fugitive + GitGutter
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter' "{{
+NeoBundle 'airblade/vim-gitgutter' "{{{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -137,8 +134,7 @@ NeoBundle 'airblade/vim-gitgutter' "{{
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-"}}
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+"}}}
 
 
 " ---------------------------------------------------------------------------
@@ -248,6 +244,9 @@ NeoBundle 'scrooloose/syntastic' "{{{
 "   * AutoPairs: Insert or delete brackets, parens, quotes in pair.
 "   * Multiple Curosr: Multiple selection/editing like Sublime Text.
 " ---------------------------------------------------------------------------
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'godlygeek/tabular' "{{{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
@@ -260,9 +259,6 @@ NeoBundle 'mattn/emmet-vim' "{{{
   \}
   let g:user_emmet_expandabbr_key="<C-e>"
 "}}}
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'terryma/vim-multiple-cursors' "{{{
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
