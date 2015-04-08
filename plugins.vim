@@ -181,28 +181,19 @@ endif
 " ---------------------------------------------------------------------------
 "  Languages:
 " ---------------------------------------------------------------------------
-" * Golang Supports
-" ---------------------------------------------------------------------------
 NeoBundle 'fatih/vim-go' "{{
   let g:go_fmt_autosave = 1
   let g:go_fmt_command = "goimports"
   nnoremap <silent> <leader>bb :GoInstall<CR>
 "}}
-
-" ---------------------------------------------------------------------------
-" Markdown
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-markdown' " {{{
   au BufRead,BufNewFile *.md set filetype=markdown
 "}}}
 " ---------------------------------------------------------------------------
-" HTML5 + Jinja
-" ---------------------------------------------------------------------------
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-jinja'
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
-" ---------------------------------------------------------------------------
-" React JSX
 " ---------------------------------------------------------------------------
 NeoBundle 'mxw/vim-jsx', {'depends': 'pangloss/vim-javascript'} " {{
   let g:jsx_ext_required = 0
@@ -212,7 +203,9 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
+NeoBundle 'groenewege/vim-less' "{{{
 
+"}}}
 
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
