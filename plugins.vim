@@ -86,7 +86,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_default_columns = ''
   let g:vimfiler_explorer_columns = ''
   let g:vimfiler_tree_indentation = 3
-  let g:vimfiler_file_icon = ' '
+  let g:vimfiler_file_icon = '·'
   let g:vimfiler_marked_file_icon = '✩'
   let g:vimfiler_readonly_file_icon = '○'
 
