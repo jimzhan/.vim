@@ -18,6 +18,7 @@
 "  Settings
 " ---------------------------------------------------------------------------
 let g:dotvim = {}
+let g:dotvim.root = $HOME . "/.vim/"
 let g:dotvim.tempdir = $HOME . "/.vim/tmp/"
 let g:dotvim.bundle = {}
 let g:dotvim.bundle.Initialized = 1
