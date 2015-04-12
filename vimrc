@@ -29,7 +29,7 @@ source $HOME/.vim/base.vim
 " ---------------------------------------------------------------------------
 syntax on                                       " Syntax highlighting
 filetype plugin indent on                       " Automatically detect file types.
-set clipboard=unnamed
+"set clipboard=unnamed
 set autowrite                                   " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility

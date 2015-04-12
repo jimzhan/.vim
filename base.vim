@@ -203,18 +203,20 @@ endfunction
 " ---------------------------------------------------------------------------
 " Make the ErrorSign of Syntastic in red along with default background color.
 function! dotvim.ResetSyntasticColors()
-    exec 'hi SyntasticErrorSign guifg=#FF0000 ctermfg=196' .
-            \' guibg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'gui') .
-            \' ctermbg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'cterm')
+  exec 'hi SyntasticErrorSign guifg=#FF0000 ctermfg=196' .
+        \' guibg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'gui') .
+        \' ctermbg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'cterm')
 endfunction
 " ---------------------------------------------------------------------------
+
 
 " ---------------------------------------------------------------------------
 "  Finalizer: To finalize settings after all.
 " ---------------------------------------------------------------------------
 function! dotvim.Finalize()
-    call g:dotvim.ResetSyntasticColors()
+  call g:dotvim.ResetSyntasticColors()
 endfunction
+
 
 " ---------------------------------------------------------------------------
 "  Setup:
