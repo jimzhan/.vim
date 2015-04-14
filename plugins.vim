@@ -193,6 +193,9 @@ NeoBundle 'fatih/vim-go' "{{
 NeoBundle 'tpope/vim-markdown' " {{{
   au BufRead,BufNewFile *.md set filetype=markdown
 "}}}
+NeoBundle 'tpope/vim-haml' "{{{
+
+"}}}
 " ---------------------------------------------------------------------------
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-jinja'
@@ -209,6 +212,7 @@ let g:used_javascript_libs = 'underscore,react'
 NeoBundle 'groenewege/vim-less' "{{{
 
 "}}}
+
 
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
