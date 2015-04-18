@@ -210,6 +210,9 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
+NeoBundle 'leafgarland/typescript-vim' "{{{
+
+"}}}
 NeoBundle 'groenewege/vim-less' "{{{
 
 "}}}
