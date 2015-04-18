@@ -104,8 +104,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
     \ "\<Plug>(vimfiler_expand_tree)",
     \ "\<Plug>(vimfiler_edit_file)")
 
-  nnoremap <C-o> :VimFilerExplorer -buffer-name=Explorer -parent -toggle
-                      \ -status -split -simple -winwidth=30 -no-quit<CR>
+  nnoremap <C-o> :VimFilerExplorer -parent -toggle -status -split -simple -winwidth=30 -no-quit<CR>
 "}}}
 
 
