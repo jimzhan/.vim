@@ -76,7 +76,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_safe_mode_by_default = 0
-  let g:vimfiler_ignore_pattern = '\%(.DS_Store\|build\|node_modules\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
+  let g:vimfiler_ignore_pattern = '\%(.DS_Store\|.pyc\|.git\w*\|.sw\w*\|.hg\|.svn\)$'
   let g:vimfiler_data_directory =  g:dotvim.tempdir . "vimfiler"
   let g:vimfiler_force_overwrite_statusline = 0
 
@@ -95,9 +95,9 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   autocmd FileType vimfiler nunmap <buffer> <C-l>
   autocmd FileType vimfiler nmap <buffer> r   <Plug>(vimfiler_redraw_screen)
   autocmd FileType vimfiler nmap <buffer> u   <Plug>(vimfiler_switch_to_parent_directory)
-  autocmd FileType vimfiler nmap <buffer> <S-n>   <Plug>(vimfiler_new_file)
-  autocmd FileType vimfiler nmap <buffer> <S-r>   <Plug>(vimfiler_rename_file)
-  autocmd FileType vimfiler nmap <buffer> <S-m>   <Plug>(vimfiler_move_file)
+  autocmd FileType vimfiler nmap <buffer> <Leader>n   <Plug>(vimfiler_new_file)
+  autocmd FileType vimfiler nmap <buffer> <Leader>r   <Plug>(vimfiler_rename_file)
+  autocmd FileType vimfiler nmap <buffer> <Leader>m   <Plug>(vimfiler_move_file)
   autocmd FileType vimfiler nmap <buffer> <S-m-k> <Plug>(vimfiler_make_directory)
 
   nmap <silent><buffer><expr> <Cr> vimfiler#smart_cursor_map(
@@ -210,9 +210,6 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
-NeoBundle 'leafgarland/typescript-vim' "{{{
-
-"}}}
 NeoBundle 'groenewege/vim-less' "{{{
 
 "}}}
@@ -233,7 +230,7 @@ NeoBundle 'scrooloose/syntastic' "{{{
   if has('balloon_eval')
     let g:syntastic_enable_balloons = 1
   endif
-  let g:syntastic_javascript_checkers = ['jsxhint']
+  let g:syntastic_javascript_checkers = ['eslint']
 "}}}
 
 
