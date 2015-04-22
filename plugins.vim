@@ -93,6 +93,7 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   autocmd FileType vimfiler setlocal nonumber
   autocmd FileType vimfiler setlocal norelativenumber
   autocmd FileType vimfiler nunmap <buffer> <C-l>
+  autocmd FileType vimfiler nunmap <buffer> <S-m>
   autocmd FileType vimfiler nmap <buffer> r   <Plug>(vimfiler_redraw_screen)
   autocmd FileType vimfiler nmap <buffer> u   <Plug>(vimfiler_switch_to_parent_directory)
   autocmd FileType vimfiler nmap <buffer> <Leader>n   <Plug>(vimfiler_new_file)
