@@ -96,9 +96,9 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
   autocmd FileType vimfiler nunmap <buffer> <S-m>
   autocmd FileType vimfiler nmap <buffer> r   <Plug>(vimfiler_redraw_screen)
   autocmd FileType vimfiler nmap <buffer> u   <Plug>(vimfiler_switch_to_parent_directory)
-  autocmd FileType vimfiler nmap <buffer> <Leader>n   <Plug>(vimfiler_new_file)
-  autocmd FileType vimfiler nmap <buffer> <Leader>r   <Plug>(vimfiler_rename_file)
-  autocmd FileType vimfiler nmap <buffer> <Leader>m   <Plug>(vimfiler_move_file)
+  autocmd FileType vimfiler nmap <buffer> <Leader>n           <Plug>(vimfiler_new_file)
+  autocmd FileType vimfiler nmap <buffer> <silent><Leader>r   <Plug>(vimfiler_rename_file)
+  autocmd FileType vimfiler nmap <buffer> <silent><Leader>m   <Plug>(vimfiler_move_file)
   autocmd FileType vimfiler nmap <buffer> <S-m-k> <Plug>(vimfiler_make_directory)
 
   nmap <silent><buffer><expr> <Cr> vimfiler#smart_cursor_map(
