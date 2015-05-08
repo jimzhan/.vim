@@ -204,7 +204,7 @@ NeoBundle 'lepture/vim-jinja'
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " ---------------------------------------------------------------------------
 NeoBundle 'mxw/vim-jsx', {'depends': 'pangloss/vim-javascript'} " {{
-  let g:jsx_ext_required = 0
+  let g:jsx_ext_required = 1
   let g:jsx_pragma_required = 0
 "}}
 NeoBundle 'othree/yajs.vim'
@@ -212,6 +212,9 @@ NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
 NeoBundle 'groenewege/vim-less' "{{{
+
+"}}}
+NeoBundle 'leafgarland/typescript-vim' "{{{
 
 "}}}
 
@@ -232,6 +235,8 @@ NeoBundle 'scrooloose/syntastic' "{{{
     let g:syntastic_enable_balloons = 1
   endif
   let g:syntastic_javascript_checkers = ['eslint']
+
+  let g:syntastic_typescript_tsc_args = '--target ES7'
 "}}}
 
 

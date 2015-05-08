@@ -120,8 +120,10 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " ---------------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+autocmd BufRead,BufNewFile *.es set filetype=javascript
 autocmd BufRead,BufNewFile *.es6 set filetype=javascript
+autocmd BufRead,BufNewFile *.es7 set filetype=javascript
+autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd BufRead,BufNewFile *.html.twig set filetype=html.twig
 
 
