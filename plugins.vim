@@ -27,6 +27,10 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
+NeoBundle 'Shougo/vimshell.vim' "{{{
+
+"}}}
+
 
 " ---------------------------------------------------------------------------
 "  File Manager: VimFiler + Unite
@@ -189,6 +193,7 @@ endif
 NeoBundle 'fatih/vim-go' "{{
   let g:go_fmt_autosave = 1
   let g:go_fmt_command = "goimports"
+  let g:go_disable_autoinstall = 0
   nnoremap <silent> <leader>bb :GoInstall<CR>
 "}}
 " ---------------------------------------------------------------------------
@@ -215,6 +220,9 @@ NeoBundle 'groenewege/vim-less' "{{{
 
 "}}}
 NeoBundle 'leafgarland/typescript-vim' "{{{
+
+"}}}
+NeoBundle 'clausreinke/typescript-tools.vim' "{{{
 
 "}}}
 
@@ -288,9 +296,9 @@ NeoBundle 'sjl/gundo.vim' "{{{
 
 
 " ---------------------------------------------------------------------------
-"  Authocomplete: Autocomplete & Code Snippets/Templates
+"  AutoComplete: AutoComplete & Code Snippets/Templates
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neocomplete' " {{
+NeoBundle 'Shougo/neocomplete' "{{{
   set completeopt-=preview
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
@@ -298,15 +306,13 @@ NeoBundle 'Shougo/neocomplete' " {{
   let g:neocomplete#enable_smart_case = 1
   " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-     let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
   inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
   inoremap <expr><CR>     pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"}}
+  if !exists('g:neocomplete#omni_patterns')
+    let g:neocomplete#omni_patterns = {}
+  endif
+  let g:neocomplete#omni_patterns.go = '\h\w*\.\?'
+"}}}
 " ---------------------------------------------------------------------------
 NeoBundle 'aperezdc/vim-template' " {{{
   let g:templates_directory = expand('~/.vim/templates')

@@ -1,3 +1,20 @@
+snippet react "Import React"
+import React from 'react';
+endsnippet
+
+
+snippet view "React.Component"
+import React from 'react';
+
+class ${1} extends React.Component {
+  render() {
+    return (
+	  ${0}
+    );
+  }
+}
+endsnippet
+
 snippet create "React.createClass"
 var ${1} = React.createClass({
   render: function() {

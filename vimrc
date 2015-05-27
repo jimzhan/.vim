@@ -29,7 +29,6 @@ source $HOME/.vim/base.vim
 " ---------------------------------------------------------------------------
 syntax on                                       " Syntax highlighting
 filetype plugin indent on                       " Automatically detect file types.
-"set clipboard=unnamed
 set autowrite                                   " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -40,6 +39,7 @@ set hidden                                      " Allow buffer switching without
 set iskeyword-=.                                " '.' is an end of word designator
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
+set modelines=0
 
 " Setting up the directories
 set backup                      " Backups are nice ...
@@ -48,6 +48,14 @@ if has('persistent_undo')
   set undolevels=1000         " Maximum number of changes that can be undone
   set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
+
+"if has('clipboard')
+  "if has('unnamedplus')  " When possible use + register for copy-paste
+    "set clipboard=unnamed,unnamedplus
+  "else         " On mac and Windows, use * register for copy-paste
+    "set clipboard=unnamed
+  "endif
+"endif
 
 call dotvim.RestoreCursor()
 
@@ -75,6 +83,14 @@ set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cursorline                  " Highlight current line
 set colorcolumn=80              " Enable Vertical Color Column at 80.
+winsize 170 100                 " workspace size
+if has('gui_running')
+  set shell=/bin/bash           " Use basic bash ONLY.
+  set guioptions-=T             " Remove the toolbar
+  set guioptions-=L             " Remove the scollbar
+  set guifont=Monaco\ for\ Powerline:h14
+  set transparency=15
+endif
 
 highlight clear SignColumn      " SignColumn should match background
 highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -83,20 +99,14 @@ highlight clear CursorLineNr    " Remove highlight color from current line numbe
 if has('cmdline_info')
   set ruler                   " Show the ruler
   set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-  set showcmd                 " Show partial commands in status line and
-                              " Selected characters/lines in visual mode
+  set showcmd                 " Show partial commands in status line and Selected characters/lines in visual mode
 endif
 
 set laststatus=2                " For vim-airline
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set number                      " Line numbers on
-set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
-set hlsearch                    " Highlight search terms
 set winminheight=0              " Windows can be 0 line high
-set ignorecase                  " Case insensitive search
-set smartcase                   " Case sensitive when uc present
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
@@ -104,6 +114,19 @@ set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+" ---------------------------------------------------------------------------
+"  Search
+" ---------------------------------------------------------------------------
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase                  " Case insensitive search
+set smartcase                   " Case sensitive when uc present
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set gdefault                    " :%s/foo/bar/  =>   :%s/foo/bar/g
+
 
 " ---------------------------------------------------------------------------
 "  Formatting
