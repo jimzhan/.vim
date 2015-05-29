@@ -27,6 +27,7 @@ source $HOME/.vim/base.vim
 " ---------------------------------------------------------------------------
 "  General
 " ---------------------------------------------------------------------------
+set visualbell t_vb=                            " Disable alert sound
 syntax on                                       " Syntax highlighting
 filetype plugin indent on                       " Automatically detect file types.
 set autowrite                                   " Automatically write a file when leaving a modified buffer
