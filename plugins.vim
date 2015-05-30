@@ -17,19 +17,18 @@
 " ------------------------------------------------------------
 "  Plugins: Fundamental Envionment
 " ---------------------------------------------------------------------------
-call plug#begin(expand('~/.vim/plugged'))
 Plug 'moll/vim-bbye'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimshell.vim'
 Plug 'yonchu/accelerated-smooth-scroll'
+Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 
 " ---------------------------------------------------------------------------
 "  File Manager: VimFiler + Unite
 " ---------------------------------------------------------------------------
 Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
+  "call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  "call unite#filters#sorter_default#use(['sorter_rank'])
+  "call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
 
   let g:unite_prompt = "➤ "
   let g:unite_winheight = 20
@@ -42,7 +41,6 @@ Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
   let g:unite_source_file_mru_limit = 200
   let g:unite_source_history_yank_enable = 1
   let g:unite_source_rec_max_cache_files=5000
-  call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
 
   nnoremap <Leader>/  :Unite grep:.<cr>
   nnoremap <Leader>f  :Unite file_rec/async<CR>
@@ -317,4 +315,3 @@ Plug 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {
   let g:UltiSnipsRemoveSelectModeMappings = 0
   let g:ultisnips_python_style = "google"     " Available Styles: doxygen | sphinx | google
 "}
-call plug#end()

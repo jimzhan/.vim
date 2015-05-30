@@ -181,7 +181,9 @@ function! dotvim.InitPlugins()
     let g:dotvim.plugins.initialized = 0
   endif
 
+  call plug#begin(expand('~/.vim/plugged'))
   source ~/.vim/plugins.vim
+  call plug#end()
 
   if g:dotvim.plugins.initialized == 0
     :PlugInstall
