@@ -27,15 +27,15 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
-NeoBundle 'Shougo/vimshell.vim' "{{{
+NeoBundle 'Shougo/vimshell.vim' "{
 
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
 "  File Manager: VimFiler + Unite
 " ---------------------------------------------------------------------------
-NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{{{
+NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
 
@@ -53,8 +53,8 @@ NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{{{
   call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
 
   nnoremap <Leader>/  :Unite grep:.<cr>
-  nnoremap <Leader>f  :Unite -buffer-name=files buffer file_mru bookmark file<CR>
-  "nnoremap <Leader>y  :Unite history/yank<CR>
+  nnoremap <Leader>f  :Unite file_rec/async<CR>
+  nnoremap <Leader>y  :Unite history/yank<CR>
   "nnoremap <Leader>s  :Unite -quick-match buffer<CR>
   "nnoremap <Leader>n  :Unite -buffer-name=New -profile-name=files file/new<CR>
 
@@ -73,9 +73,9 @@ NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{{{
                                         \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     let g:unite_source_grep_recursive_opt = ''
   endif
-"}}}
+"}
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
+NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{
   let g:vimfiler_enable_auto_cd = 1
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_as_default_explorer = 1
@@ -110,15 +110,15 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{{{
     \ "\<Plug>(vimfiler_edit_file)")
 
   nnoremap <C-o> :VimFilerExplorer -parent -toggle -status -split -simple -winwidth=30 -no-quit<CR>
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
 "  Themes: Color Themes
 " ---------------------------------------------------------------------------
-NeoBundle 'chriskempson/base16-vim' "{{{
+NeoBundle 'chriskempson/base16-vim' "{
   let base16colorspace=256
-"}}}
+"}
 NeoBundle 'altercation/vim-colors-solarized'
 
 
@@ -126,7 +126,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 "  GIT Manager: Fugitive + GitGutter
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter' "{{{
+NeoBundle 'airblade/vim-gitgutter' "{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -139,7 +139,7 @@ NeoBundle 'airblade/vim-gitgutter' "{{{
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
@@ -197,12 +197,12 @@ NeoBundle 'fatih/vim-go' "{{
   nnoremap <silent> <leader>bb :GoInstall<CR>
 "}}
 " ---------------------------------------------------------------------------
-NeoBundle 'tpope/vim-markdown' " {{{
+NeoBundle 'tpope/vim-markdown' " {
   au BufRead,BufNewFile *.md set filetype=markdown
-"}}}
-NeoBundle 'tpope/vim-haml' "{{{
+"}
+NeoBundle 'tpope/vim-haml' "{
 
-"}}}
+"}
 " ---------------------------------------------------------------------------
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-jinja'
@@ -216,21 +216,21 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
-NeoBundle 'groenewege/vim-less' "{{{
+NeoBundle 'groenewege/vim-less' "{
 
-"}}}
-NeoBundle 'leafgarland/typescript-vim' "{{{
+"}
+NeoBundle 'leafgarland/typescript-vim' "{
 
-"}}}
-NeoBundle 'clausreinke/typescript-tools.vim' "{{{
+"}
+NeoBundle 'clausreinke/typescript-tools.vim' "{
 
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
-NeoBundle 'scrooloose/syntastic' "{{{
+NeoBundle 'scrooloose/syntastic' "{
   hi SyntasticErrorSign ctermfg=196 guifg=#FF0000
   let g:syntastic_enable_signs = 1
   let g:syntastic_error_symbol = "✘"
@@ -245,7 +245,7 @@ NeoBundle 'scrooloose/syntastic' "{{{
   let g:syntastic_javascript_checkers = ['eslint']
 
   let g:syntastic_typescript_tsc_args = '--target ES7'
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
@@ -259,19 +259,19 @@ NeoBundle 'scrooloose/syntastic' "{{{
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'godlygeek/tabular' "{{{
+NeoBundle 'godlygeek/tabular' "{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
-"}}}
-NeoBundle 'mattn/emmet-vim' "{{{
+"}
+NeoBundle 'mattn/emmet-vim' "{
   let g:user_emmet_settings = {
   \    'indentation' : '  '
   \}
   let g:user_emmet_expandabbr_key="<C-e>"
-"}}}
-NeoBundle 'terryma/vim-multiple-cursors' "{{{
+"}
+NeoBundle 'terryma/vim-multiple-cursors' "{
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
   echo 'Disabled autocomplete'
@@ -281,24 +281,24 @@ function! Multiple_cursors_after()
   exe 'NeoCompleteUnlock'
   echo 'Enabled autocomplete'
 endfunction
-"}}}
+"}
 "
-NeoBundle 'ntpeters/vim-better-whitespace' "{{{
+NeoBundle 'ntpeters/vim-better-whitespace' "{
   let g:better_whitespace_enabled = 1
   let g:better_whitespace_filetypes_blacklist=['vimfiler']
   "highlight ExtraWhitespace ctermbg=166
-"}}}
+"}
 "
-NeoBundle 'sjl/gundo.vim' "{{{
+NeoBundle 'sjl/gundo.vim' "{
   let g:gundo_right = 1
   nnoremap <Leader>u :GundoToggle<CR>
-"}}}
+"}
 
 
 " ---------------------------------------------------------------------------
 "  AutoComplete: AutoComplete & Code Snippets/Templates
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neocomplete' "{{{
+NeoBundle 'Shougo/neocomplete' "{
   set completeopt-=preview
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
@@ -312,16 +312,16 @@ NeoBundle 'Shougo/neocomplete' "{{{
     let g:neocomplete#omni_patterns = {}
   endif
   let g:neocomplete#omni_patterns.go = '\h\w*\.\?'
-"}}}
+"}
 " ---------------------------------------------------------------------------
-NeoBundle 'aperezdc/vim-template' " {{{
+NeoBundle 'aperezdc/vim-template' " {
   let g:templates_directory = expand('~/.vim/templates')
-"}}}
-NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {{{
+"}
+NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {
   let g:UltiSnipsEditSplit="vertical"
   let g:UltiSnipsExpandTrigger="<TAB>"
   let g:UltiSnipsJumpForwardTrigger="<TAB>"
   let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
   let g:UltiSnipsRemoveSelectModeMappings = 0
   let g:ultisnips_python_style = "google"     " Available Styles: doxygen | sphinx | google
-"}}}
+"}
