@@ -20,9 +20,10 @@
 let g:dotvim = {}
 let g:dotvim.root = $HOME . "/.vim/"
 let g:dotvim.tempdir = $HOME . "/.vim/tmp/"
-let g:dotvim.bundle = {}
-let g:dotvim.bundle.Initialized = 1
-source $HOME/.vim/base.vim
+let g:dotvim.plugins = {}
+let g:dotvim.plugins.initialized = 1
+let g:plug_home = 'plugins'
+source $HOME/.vim/functions.vim
 
 " ---------------------------------------------------------------------------
 "  General
@@ -49,14 +50,6 @@ if has('persistent_undo')
   set undolevels=1000         " Maximum number of changes that can be undone
   set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
-
-"if has('clipboard')
-  "if has('unnamedplus')  " When possible use + register for copy-paste
-    "set clipboard=unnamed,unnamedplus
-  "else         " On mac and Windows, use * register for copy-paste
-    "set clipboard=unnamed
-  "endif
-"endif
 
 call dotvim.RestoreCursor()
 
@@ -188,7 +181,7 @@ map  <Leader>p "+p
 " ---------------------------------------------------------------------------
 " Plugins Manager: Setup Custom Plugins Support.
 " ---------------------------------------------------------------------------
-call dotvim.InitializePlugins(expand('~/.vimrc.plugins'))
+call dotvim.InitPlugins()
 colorscheme base16-solarized
 
 " ---------------------------------------------------------------------------

@@ -174,13 +174,27 @@ endfunction
 " ---------------------------------------------------------------------------
 "  Plugin Manager: Initialize Vundle to manage plugins.
 " ---------------------------------------------------------------------------
+function! dotvim.InitPlugins()
+  if !filereadable(expand('$HOME/.vim/autoload/plug.vim'))
+    echo "[*] Installing Vim-Plug..."
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let g:dotvim.plugins.initialized = 0
+  endif
+
+  source ~/.vim/plugins.vim
+
+  if g:dotvim.plugins.initialized == 0
+    :PlugInstall
+  endif
+endfunction
+
 function! dotvim.InitializePlugins(config)
     " Ensure NeoBundle's Existence.
     if !filereadable(expand('$HOME/.vim/bundle/neobundle.vim/README.md'))
         echo "[*] Installing NeoBundle..."
         echo ""
         silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-        let g:dotvim.bundle.Initialized = 0
+        let g:dotvim.plugins.initialized = 0
     endif
 
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -195,7 +209,7 @@ function! dotvim.InitializePlugins(config)
 
     filetype indent plugin on
     NeoBundleCheck
-    if g:dotvim.bundle.Initialized == 0
+    if g:dotvim.plugins.initialized == 0
         :NeoBundleInstall
     endif
 endfunction

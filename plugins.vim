@@ -17,25 +17,17 @@
 " ------------------------------------------------------------
 "  Plugins: Fundamental Envionment
 " ---------------------------------------------------------------------------
-NeoBundle 'moll/vim-bbye'
-NeoBundle 'yonchu/accelerated-smooth-scroll'
-NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\    },
-\ }
-NeoBundle 'Shougo/vimshell.vim' "{
-
-"}
+call plug#begin(expand('~/.vim/plugged'))
+Plug 'moll/vim-bbye'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimshell.vim'
+Plug 'yonchu/accelerated-smooth-scroll'
 
 
 " ---------------------------------------------------------------------------
 "  File Manager: VimFiler + Unite
 " ---------------------------------------------------------------------------
-NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{
+Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
 
@@ -75,7 +67,7 @@ NeoBundle "Shougo/unite.vim", {'depends': 'Shougo/neomru.vim'} "{
   endif
 "}
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{
+Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim' "{
   let g:vimfiler_enable_auto_cd = 1
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_as_default_explorer = 1
@@ -116,17 +108,17 @@ NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'} "{
 " ---------------------------------------------------------------------------
 "  Themes: Color Themes
 " ---------------------------------------------------------------------------
-NeoBundle 'chriskempson/base16-vim' "{
+Plug 'chriskempson/base16-vim' "{
   let base16colorspace=256
 "}
-NeoBundle 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 
 " ---------------------------------------------------------------------------
 "  GIT Manager: Fugitive + GitGutter
 " ---------------------------------------------------------------------------
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter' "{
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' "{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -145,13 +137,13 @@ NeoBundle 'airblade/vim-gitgutter' "{
 " ---------------------------------------------------------------------------
 "  Comment Helper: NERDCommentor
 " ---------------------------------------------------------------------------
-NeoBundle 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 
 " ---------------------------------------------------------------------------
 "  Status: Status Line Enhancement
 " ---------------------------------------------------------------------------
-NeoBundle 'bling/vim-airline' "{{
+Plug 'bling/vim-airline' "{{
   let g:airline_powerline_fonts=1
   let g:airline_theme='base16'
   let g:airline#extensions#tabline#enabled = 1
@@ -163,7 +155,7 @@ NeoBundle 'bling/vim-airline' "{{
 "  Tags: Source Code Tags
 " ---------------------------------------------------------------------------
 if executable('ctags') "{{
-  NeoBundle 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar'
   let g:tagbar_width=30
   "autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
   nnoremap <silent> <Leader>tt :TagbarToggle<CR>
@@ -190,39 +182,39 @@ endif
 " ---------------------------------------------------------------------------
 "  Languages:
 " ---------------------------------------------------------------------------
-NeoBundle 'fatih/vim-go' "{{
+Plug 'fatih/vim-go' "{{
   let g:go_fmt_autosave = 1
   let g:go_fmt_command = "goimports"
   let g:go_disable_autoinstall = 0
   nnoremap <silent> <leader>bb :GoInstall<CR>
 "}}
 " ---------------------------------------------------------------------------
-NeoBundle 'tpope/vim-markdown' " {
+Plug 'tpope/vim-markdown' " {
   au BufRead,BufNewFile *.md set filetype=markdown
 "}
-NeoBundle 'tpope/vim-haml' "{
+Plug 'tpope/vim-haml' "{
 
 "}
 " ---------------------------------------------------------------------------
-NeoBundle 'othree/html5.vim'
-NeoBundle 'lepture/vim-jinja'
+Plug 'othree/html5.vim'
+Plug 'lepture/vim-jinja'
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " ---------------------------------------------------------------------------
-NeoBundle 'mxw/vim-jsx', {'depends': 'pangloss/vim-javascript'} " {{
+Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript' " {{
   let g:jsx_ext_required = 1
   let g:jsx_pragma_required = 0
 "}}
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
-NeoBundle 'groenewege/vim-less' "{
+Plug 'groenewege/vim-less' "{
 
 "}
-NeoBundle 'leafgarland/typescript-vim' "{
+Plug 'leafgarland/typescript-vim' "{
 
 "}
-NeoBundle 'clausreinke/typescript-tools.vim' "{
+Plug 'clausreinke/typescript-tools.vim' "{
 
 "}
 
@@ -230,7 +222,7 @@ NeoBundle 'clausreinke/typescript-tools.vim' "{
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
-NeoBundle 'scrooloose/syntastic' "{
+Plug 'scrooloose/syntastic' "{
   hi SyntasticErrorSign ctermfg=196 guifg=#FF0000
   let g:syntastic_enable_signs = 1
   let g:syntastic_error_symbol = "✘"
@@ -256,22 +248,22 @@ NeoBundle 'scrooloose/syntastic' "{
 "   * AutoPairs: Insert or delete brackets, parens, quotes in pair.
 "   * Multiple Curosr: Multiple selection/editing like Sublime Text.
 " ---------------------------------------------------------------------------
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'godlygeek/tabular' "{
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular' "{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 "}
-NeoBundle 'mattn/emmet-vim' "{
+Plug 'mattn/emmet-vim' "{
   let g:user_emmet_settings = {
   \    'indentation' : '  '
   \}
   let g:user_emmet_expandabbr_key="<C-e>"
 "}
-NeoBundle 'terryma/vim-multiple-cursors' "{
+Plug 'terryma/vim-multiple-cursors' "{
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
   echo 'Disabled autocomplete'
@@ -283,13 +275,13 @@ function! Multiple_cursors_after()
 endfunction
 "}
 "
-NeoBundle 'ntpeters/vim-better-whitespace' "{
+Plug 'ntpeters/vim-better-whitespace' "{
   let g:better_whitespace_enabled = 1
   let g:better_whitespace_filetypes_blacklist=['vimfiler']
   "highlight ExtraWhitespace ctermbg=166
 "}
 "
-NeoBundle 'sjl/gundo.vim' "{
+Plug 'sjl/gundo.vim' "{
   let g:gundo_right = 1
   nnoremap <Leader>u :GundoToggle<CR>
 "}
@@ -298,7 +290,7 @@ NeoBundle 'sjl/gundo.vim' "{
 " ---------------------------------------------------------------------------
 "  AutoComplete: AutoComplete & Code Snippets/Templates
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neocomplete' "{
+Plug 'Shougo/neocomplete' "{
   set completeopt-=preview
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
@@ -314,10 +306,10 @@ NeoBundle 'Shougo/neocomplete' "{
   let g:neocomplete#omni_patterns.go = '\h\w*\.\?'
 "}
 " ---------------------------------------------------------------------------
-NeoBundle 'aperezdc/vim-template' " {
+Plug 'aperezdc/vim-template' " {
   let g:templates_directory = expand('~/.vim/templates')
 "}
-NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {
+Plug 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {
   let g:UltiSnipsEditSplit="vertical"
   let g:UltiSnipsExpandTrigger="<TAB>"
   let g:UltiSnipsJumpForwardTrigger="<TAB>"
@@ -325,3 +317,4 @@ NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'} " {
   let g:UltiSnipsRemoveSelectModeMappings = 0
   let g:ultisnips_python_style = "google"     " Available Styles: doxygen | sphinx | google
 "}
+call plug#end()
