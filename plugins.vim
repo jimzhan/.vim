@@ -19,18 +19,24 @@
 " ---------------------------------------------------------------------------
 Plug 'moll/vim-bbye'
 Plug 'yonchu/accelerated-smooth-scroll'
-Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' } "{
+  let g:vimshell_enable_smart_case   = 1
+  let g:vimshell_prompt              = '➤ '
+  let g:vimshell_user_prompt         = 'fnamemodify(getcwd(), ":~")'
+  let g:vimshell_temporary_directory = "/tmp/vimshell"
+  "let g:vimshell_right_prompt        = 'system("date")'
+"}
 
 
 " ---------------------------------------------------------------------------
 "  File Manager: VimFiler + Unite
 " ---------------------------------------------------------------------------
 Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
-  let g:unite_prompt = "➤ "
-  let g:unite_winheight = 20
-  let g:unite_split_rule = 'botright'
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
+  let g:unite_prompt              = '➤ '
+  let g:unite_winheight           = 15
+  let g:unite_split_rule          = 'botright'
+  let g:unite_enable_ignore_case  = 1
+  let g:unite_enable_smart_case   = 1
   let g:unite_enable_start_insert = 1
 
   let g:unite_data_directory = g:dotvim.tempdir . 'unite'
@@ -281,8 +287,10 @@ Plug 'Shougo/neocomplete' "{
   set completeopt-=preview
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
+  let g:neocomplete#enable_at_startup       = 1
+  let g:neocomplete#enable_smart_case       = 1
+  let g:neocomplete#enable_ignore_case      = 1
+  let g:neocomplete#enable_fuzzy_completion = 1
   " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 3
   inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -291,6 +299,9 @@ Plug 'Shougo/neocomplete' "{
     let g:neocomplete#omni_patterns = {}
   endif
   let g:neocomplete#omni_patterns.go = '\h\w*\.\?'
+"}
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' } "{
+  autocmd FileType javascript nested setlocal omnifunc=javascriptcomplete#CompleteJS
 "}
 " ---------------------------------------------------------------------------
 Plug 'aperezdc/vim-template' " {
