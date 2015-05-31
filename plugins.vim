@@ -26,10 +26,6 @@ Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 "  File Manager: VimFiler + Unite
 " ---------------------------------------------------------------------------
 Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
-  "call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  "call unite#filters#sorter_default#use(['sorter_rank'])
-  "call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
-
   let g:unite_prompt = "➤ "
   let g:unite_winheight = 20
   let g:unite_split_rule = 'botright'
@@ -53,6 +49,9 @@ Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
     imap <silent><buffer> <C-k> <C-p>
     imap <silent><buffer> <C-j> <C-n>
     imap <silent><buffer> <C-d> <CR>
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '(\.meta$|\.tmp)')
   endfunction
 
   if executable('ag')
@@ -180,41 +179,33 @@ endif
 " ---------------------------------------------------------------------------
 "  Languages:
 " ---------------------------------------------------------------------------
-Plug 'fatih/vim-go' "{{
+Plug 'fatih/vim-go' "{
   let g:go_fmt_autosave = 1
   let g:go_fmt_command = "goimports"
   let g:go_disable_autoinstall = 0
   nnoremap <silent> <leader>bb :GoInstall<CR>
-"}}
+"}
 " ---------------------------------------------------------------------------
-Plug 'tpope/vim-markdown' " {
+Plug 'tpope/vim-markdown' "{
   au BufRead,BufNewFile *.md set filetype=markdown
 "}
-Plug 'tpope/vim-haml' "{
-
-"}
+Plug 'tpope/vim-haml'
 " ---------------------------------------------------------------------------
 Plug 'othree/html5.vim'
 Plug 'lepture/vim-jinja'
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " ---------------------------------------------------------------------------
-Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript' " {{
+Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript' "{
   let g:jsx_ext_required = 1
   let g:jsx_pragma_required = 0
-"}}
+"}
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
-Plug 'groenewege/vim-less' "{
-
-"}
-Plug 'leafgarland/typescript-vim' "{
-
-"}
-Plug 'clausreinke/typescript-tools.vim' "{
-
-"}
+Plug 'groenewege/vim-less'
+Plug 'leafgarland/typescript-vim'
+Plug 'clausreinke/typescript-tools.vim'
 
 
 " ---------------------------------------------------------------------------
@@ -272,13 +263,11 @@ function! Multiple_cursors_after()
   echo 'Enabled autocomplete'
 endfunction
 "}
-"
 Plug 'ntpeters/vim-better-whitespace' "{
   let g:better_whitespace_enabled = 1
   let g:better_whitespace_filetypes_blacklist=['vimfiler']
   "highlight ExtraWhitespace ctermbg=166
 "}
-"
 Plug 'sjl/gundo.vim' "{
   let g:gundo_right = 1
   nnoremap <Leader>u :GundoToggle<CR>
