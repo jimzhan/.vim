@@ -174,7 +174,7 @@ endfunction
 " ---------------------------------------------------------------------------
 "  Plugin Manager: Initialize vim-plug to manage plugins.
 " ---------------------------------------------------------------------------
-function! dotvim.InitalizePlugins()
+function! dotvim.InitializePlugins()
   if !filereadable(expand('$HOME/.vim/autoload/plug.vim'))
     echo "[*] Installing Vim-Plug..."
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
