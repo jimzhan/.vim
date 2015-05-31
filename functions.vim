@@ -172,7 +172,7 @@ endfunction
 
 
 " ---------------------------------------------------------------------------
-"  Plugin Manager: Initialize Vundle to manage plugins.
+"  Plugin Manager: Initialize vim-plug to manage plugins.
 " ---------------------------------------------------------------------------
 function! dotvim.InitalizePlugins()
   if !filereadable(expand('$HOME/.vim/autoload/plug.vim'))
@@ -198,14 +198,6 @@ function! dotvim.ResetSyntasticColors()
         \' ctermbg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'cterm')
 endfunction
 " ---------------------------------------------------------------------------
-
-
-" ---------------------------------------------------------------------------
-"  Finalizer: To finalize settings after all.
-" ---------------------------------------------------------------------------
-function! dotvim.Finalize()
-  call g:dotvim.ResetSyntasticColors()
-endfunction
 
 
 " ---------------------------------------------------------------------------
