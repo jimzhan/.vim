@@ -86,9 +86,10 @@ if has('gui_running')
   set transparency=15
 endif
 
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
-highlight clear CursorLineNr    " Remove highlight color from current line number
+highlight clear SignColumn              " SignColumn should match background
+highlight clear LineNr                  " Current line number row will have same background color in relative mode
+highlight clear CursorLineNr            " Remove highlight color from current line number
+highlight ExtraWhitespace ctermbg=166   " Highlight extra whitespace in specific color
 
 if has('cmdline_info')
   set ruler                   " Show the ruler
@@ -137,10 +138,6 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " ---------------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.es set filetype=javascript
-autocmd BufRead,BufNewFile *.es6 set filetype=javascript
-autocmd BufRead,BufNewFile *.es7 set filetype=javascript
-autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd BufRead,BufNewFile *.html.twig set filetype=html.twig
 
 
@@ -181,8 +178,9 @@ map  <Leader>p "+p
 " ---------------------------------------------------------------------------
 " Plugins Manager: Setup Custom Plugins Support.
 " ---------------------------------------------------------------------------
-call dotvim.InitPlugins()
+call dotvim.InitalizePlugins()
 colorscheme base16-solarized
+
 
 " ---------------------------------------------------------------------------
 " Finalize: Post settings & restting colors.
@@ -193,4 +191,6 @@ call dotvim.Finalize()
 " ---------------------------------------------------------------------------
 "  Local Settings
 " ---------------------------------------------------------------------------
-highlight ExtraWhitespace ctermbg=166
+if filereadable(expand('$HOME/.vimrc.local'))
+  source $HOME/.vimrc.local
+endif
