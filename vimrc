@@ -29,6 +29,7 @@ source $HOME/.vim/functions.vim
 " ---------------------------------------------------------------------------
 syntax on                                       " Syntax highlighting
 filetype plugin indent on                       " Automatically detect file types.
+set autoread                                    " Set to auto read when a file is changed from the outside
 set autowrite                                   " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -40,8 +41,8 @@ set iskeyword-=.                                " '.' is an end of word designat
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
 set modelines=0
-set visualbell           " don't beep
-set noerrorbells         " don't beep
+" No annoying sound on errors
+set noeb vb t_vb=
 
 " Setting up the directories
 set backup                      " Backups are nice ...
@@ -92,9 +93,9 @@ highlight clear CursorLineNr            " Remove highlight color from current li
 highlight ExtraWhitespace ctermbg=166   " Highlight extra whitespace in specific color
 
 if has('cmdline_info')
-  set ruler                   " Show the ruler
+  set ruler                     " Show the ruler
   set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-  set showcmd                 " Show partial commands in status line and Selected characters/lines in visual mode
+  set showcmd                   " Show partial commands in status line and Selected characters/lines in visual mode
 endif
 
 set laststatus=2                " For vim-airline
@@ -103,6 +104,7 @@ set linespace=0                 " No extra spaces between rows
 set number                      " Line numbers on
 set winminheight=0              " Windows can be 0 line high
 set wildmenu                    " Show list instead of just completing
+set wildignore=*.o,*~,*.pyc     " Ignore copmiled files
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
@@ -146,6 +148,7 @@ autocmd BufRead,BufNewFile *.html.twig set filetype=html.twig
 " ---------------------------------------------------------------------------
 let mapleader = ','     " The default Leader is '\'.
 imap jj <ESC>           " Shortcut to ESC
+nmap <leader>w :w!<CR>  " Fast saving
 " Code folding options
 " ----------------
 "" toggle folding using `space`.
@@ -179,6 +182,7 @@ map  <Leader>p "+p
 " Plugins Manager: Setup Custom Plugins Support.
 " ---------------------------------------------------------------------------
 call g:dotvim.InitializePlugins()
+
 
 " ---------------------------------------------------------------------------
 "  Local Settings
