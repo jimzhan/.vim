@@ -226,6 +226,7 @@ Plug 'scrooloose/syntastic' "{
   let g:syntastic_style_error_symbol = '✠'
   let g:syntastic_style_warning_symbol = '☢'
   let g:syntastic_check_on_open = 1
+  let g:syntastic_objc_compiler = "gcc"
 
   if has('balloon_eval')
     let g:syntastic_enable_balloons = 1

@@ -115,8 +115,6 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 " ---------------------------------------------------------------------------
 "  Search
 " ---------------------------------------------------------------------------
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase                  " Case insensitive search
 set smartcase                   " Case sensitive when uc present
 set showmatch                   " Show matching brackets/parenthesis
