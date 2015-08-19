@@ -168,7 +168,7 @@ nmap <leader>9 :set foldlevel=9<CR>
 " ----------------
 :nmap <C-l>     :bnext<CR>
 :nmap <C-h>     :bprevious<CR>
-:nmap <C-k>     :Bdelete<CR>
+:nmap <C-k>     :bdelete<CR>
 " System Clipboard
 " ----------------
 vmap <Leader>y "+y
