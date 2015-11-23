@@ -52,6 +52,7 @@ if has('persistent_undo')
   set undoreload=1000           " Maximum number lines to save for undo on a buffer reload
 endif
 
+set ffs=unix,dos
 call dotvim.RestoreCursor()
 
 
