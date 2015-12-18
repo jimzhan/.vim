@@ -74,7 +74,9 @@ endif
 " ---------------------------------------------------------------------------
 set background=dark             " Assume a dark background
 set t_Co=256                    " Enable 256 colors (stop CSApprox warning and make xterm vim shine)
-set term=$TERM                  " Make arrow and other keys work
+if !has('nvim')
+    set term=$TERM                  " Make arrow and other keys work
+endif
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cursorline                  " Highlight current line
