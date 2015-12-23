@@ -74,9 +74,6 @@ endif
 " ---------------------------------------------------------------------------
 set background=dark             " Assume a dark background
 set t_Co=256                    " Enable 256 colors (stop CSApprox warning and make xterm vim shine)
-if !has('nvim')
-    set term=$TERM                  " Make arrow and other keys work
-endif
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cursorline                  " Highlight current line
@@ -177,6 +174,16 @@ nmap <leader>9 :set foldlevel=9<CR>
 vmap <Leader>y "+y
 map  <Leader>x "+x
 map  <Leader>p "+p
+
+
+" ---------------------------------------------------------------------------
+" NeoVim: Specific settings.
+" ---------------------------------------------------------------------------
+if !has('nvim')
+    set term=$TERM                  " Make arrow and other keys work under regular vim
+else
+    cmap sh terminal                " Use consistent way to call out the terminal
+endif
 
 
 " ---------------------------------------------------------------------------
