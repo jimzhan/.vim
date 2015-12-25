@@ -182,7 +182,8 @@ map  <Leader>p "+p
 if !has('nvim')
     set term=$TERM                  " Make arrow and other keys work under regular vim
 else
-    cmap sh terminal                " Use consistent way to call out the terminal
+" Use consistent way to call out the shell
+    cmap sh terminal
 endif
 
 
