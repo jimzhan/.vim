@@ -32,12 +32,20 @@ Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' } "{
 " ---------------------------------------------------------------------------
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
   map <C-o> :NERDTreeTabsToggle<CR>
-  let NERDTreeIgnore = ['\.pyc$', '\.git$']
+  let NERDTreeShowBookmarks=1
+  let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
   let NERDTreeMinimalUI = 0
+  let NERDTreeChDirMode=2
+  let NERDTreeQuitOnOpen=1
+  let NERDTreeMouseMode=2
+  let NERDTreeShowHidden=1
+  let NERDTreeKeepTreeInNewTab=1
+
   let g:NERDTreeDirArrowExpandable = '▸'
   let g:NERDTreeDirArrowCollapsible = '▾'
+
+  let g:nerdtree_tabs_open_on_gui_startup=0
   let g:nerdtree_tabs_open_on_console_startup = 0
-  autocmd VimEnter * wincmd w
 "}
 " ---------------------------------------------------------------------------
 Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
