@@ -19,7 +19,7 @@
 " ---------------------------------------------------------------------------
 let g:dotvim = {}
 let g:dotvim.root = $HOME . "/.vim/"
-let g:dotvim.tempdir = $HOME . "/.vimtmp/"
+let g:dotvim.tempdir = $HOME . "/.vim/tmp"
 let g:dotvim.plugins = {}
 let g:dotvim.plugins.initialized = 1
 source $HOME/.vim/functions.vim

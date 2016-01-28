@@ -40,6 +40,7 @@ if [ ! -d $vim ]; then
     info "Setting up Vim..."
     git clone $repos $vim
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
+    mkdir $HOME/.vim/tmp
     success "Vim is ready to launch now"
 else
     cd $vim && git pull -v
