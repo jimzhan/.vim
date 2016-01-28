@@ -30,6 +30,16 @@ Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' } "{
 " ---------------------------------------------------------------------------
 "  Plugins: File Manager
 " ---------------------------------------------------------------------------
+Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
+  map <C-o> :NERDTreeTabsToggle<CR>
+  let NERDTreeIgnore = ['\.pyc$', '\.git$']
+  let NERDTreeMinimalUI = 0
+  let g:NERDTreeDirArrowExpandable = '▸'
+  let g:NERDTreeDirArrowCollapsible = '▾'
+  let g:nerdtree_tabs_open_on_console_startup = 0
+  autocmd VimEnter * wincmd w
+"}
+" ---------------------------------------------------------------------------
 Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
   let g:unite_prompt              = '➤ '
   let g:unite_winheight           = 15
@@ -69,12 +79,6 @@ Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
                                         \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     let g:unite_source_grep_recursive_opt = ''
   endif
-"}
-" ---------------------------------------------------------------------------
-Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
-  map <C-o> :NERDTreeTabsToggle<CR>
-  let g:NERDTreeDirArrowExpandable = '▸'
-  let g:NERDTreeDirArrowCollapsible = '▾'
 "}
 " ---------------------------------------------------------------------------
 
