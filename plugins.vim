@@ -71,8 +71,8 @@ Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
   endif
 "}
 " ---------------------------------------------------------------------------
-Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{
-  map <C-o> :NERDTreeToggle<CR>
+Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
+  map <C-o> :NERDTreeTabsToggle<CR>
   let g:NERDTreeDirArrowExpandable = '▸'
   let g:NERDTreeDirArrowCollapsible = '▾'
 "}
