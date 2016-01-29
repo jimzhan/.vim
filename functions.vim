@@ -18,15 +18,17 @@
 "   Platforms
 " ---------------------------------------------------------------------------
 " Identify platform {
-    silent function! OSX()
-        return has('macunix')
-    endfunction
-    silent function! LINUX()
-        return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
-    silent function! WINDOWS()
-        return  (has('win32') || has('win64'))
-    endfunction
+silent function! IsMac()
+    return has('macunix')
+endfunction
+
+silent function! IsLinux()
+    return has('unix') && !has('macunix') && !has('win32unix')
+endfunction
+
+silent function! IsWindows()
+    return  (has('win32') || has('win64'))
+endfunction
 " }
 " ---------------------------------------------------------------------------
 "  Functions

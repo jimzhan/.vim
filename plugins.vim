@@ -51,13 +51,16 @@ Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scro
 "}
 " ---------------------------------------------------------------------------
 "  Plugins
-Plug 'kien/ctrlp.vim' "{
+Plug 'tacahiroy/ctrlp-funky' | Plug 'kien/ctrlp.vim' "{
   let g:ctrlp_working_path_mode = 'ra'
-  nnoremap <silent> <D-t> :CtrlP<CR>
-  nnoremap <silent> <D-r> :CtrlPMRU<CR>
+  nmap <leader>f :CtrlP<cr>
+  " Easy bindings for its various modes
+  nmap <leader>bb :CtrlPBuffer<cr>
+  nmap <leader>bm :CtrlPMixed<cr>
+  nmap <leader>bs :CtrlPMRU<cr>
   let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+      \ 'dir':  '\.(git|hg|svn)$',
+      \ 'file': '\.(exe|so|dll|class|pyc|png|jpg|jpeg)$' }
 
   if executable('ag')
       let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
@@ -66,7 +69,7 @@ Plug 'kien/ctrlp.vim' "{
   elseif executable('ack')
       let s:ctrlp_fallback = 'ack %s --nocolor -f'
   " On Windows use "dir" as fallback command.
-  elseif WINDOWS()
+  elseif IsWindows()
       let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
   else
       let s:ctrlp_fallback = 'find %s -type f'
@@ -82,7 +85,7 @@ Plug 'kien/ctrlp.vim' "{
       \ 'fallback': s:ctrlp_fallback
   \ }
 
-  if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+  if isdirectory(expand("~/.vim/plugins/ctrlp-funky/"))
       " CtrlP extensions
       let g:ctrlp_extensions = ['funky']
 
@@ -131,12 +134,12 @@ Plug 'scrooloose/nerdcommenter'
 " ---------------------------------------------------------------------------
 "  Plugins: Status Line Enhancement
 " ---------------------------------------------------------------------------
-Plug 'bling/vim-airline' "{{
+Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline' "{
   let g:airline_powerline_fonts=1
   let g:airline_theme='base16'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
-"}}
+"}
 
 
 " ---------------------------------------------------------------------------
