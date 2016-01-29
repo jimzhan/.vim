@@ -29,6 +29,7 @@ source $HOME/.vim/functions.vim
 " ---------------------------------------------------------------------------
 syntax on                                       " Syntax highlighting
 filetype plugin indent on                       " Automatically detect file types.
+set autochdir                                   " Automatically switch to CWD.
 set autoread                                    " Set to auto read when a file is changed from the outside
 set autowrite                                   " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')

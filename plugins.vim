@@ -31,15 +31,17 @@ Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' } "{
 "  Plugins: File Manager
 " ---------------------------------------------------------------------------
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
+  map <leader>b :Bookmark<CR>
   map <C-o> :NERDTreeTabsToggle<CR>
+  nnoremap <leader>n :NERDTree .<CR>
+  let NERDTreeChDirMode = 2
   let NERDTreeShowBookmarks=1
   let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
   let NERDTreeMinimalUI = 0
-  let NERDTreeChDirMode=2
-  let NERDTreeQuitOnOpen=1
-  let NERDTreeMouseMode=2
-  let NERDTreeShowHidden=1
-  let NERDTreeKeepTreeInNewTab=1
+  let NERDTreeQuitOnOpen = 1
+  let NERDTreeMouseMode = 2
+  let NERDTreeShowHidden = 1
+  let NERDTreeKeepTreeInNewTab = 1
 
   let g:NERDTreeDirArrowExpandable = '▸'
   let g:NERDTreeDirArrowCollapsible = '▾'
