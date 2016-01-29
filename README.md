@@ -13,9 +13,24 @@ Prerequisites
 
 ```sh
 brew install cmake ctags
-brew install --override-system-vi --with-lua --with-luajit --with-python --with-ruby vim
+brew install --override-system-vi --with-lua --with-luajit vim
 brew linkapps
 ```
+
+Features
+========
+- NERDTree
+- CtrlP
+- Color Themes
+- GIT (Fugitive)
+- Ultisnips
+- AutoComplete (NeoComplete)
+- Supported Languages
+    - Golang
+    - Markdown
+    - JSX
+    - HAML
+    - TypeScript
 
 
 Install
