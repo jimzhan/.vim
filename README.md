@@ -20,7 +20,7 @@ brew linkapps
 Features
 ========
 - NERDTree
-- CtrlP
+- Unite.vim
 - Color Themes
 - GIT (Fugitive)
 - Ultisnips
