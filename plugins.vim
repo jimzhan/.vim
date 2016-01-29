@@ -50,44 +50,44 @@ Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scro
   let g:nerdtree_tabs_open_on_console_startup = 0
 "}
 " ---------------------------------------------------------------------------
-Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim' "{
-  let g:unite_prompt              = '➤ '
-  let g:unite_winheight           = 15
-  let g:unite_split_rule          = 'botright'
-  let g:unite_enable_ignore_case  = 1
-  let g:unite_enable_smart_case   = 1
-  let g:unite_enable_start_insert = 1
-
-  let g:unite_data_directory = g:dotvim.tempdir . 'unite'
-  let g:unite_source_file_mru_limit = 200
-  let g:unite_source_history_yank_enable = 1
-  let g:unite_source_rec_max_cache_files=5000
-
-  nnoremap <Leader>/  :Unite grep:.<cr>
-  nnoremap <Leader>f  :Unite file_rec/async<CR>
-  nnoremap <Leader>y  :Unite history/yank<CR>
-  "nnoremap <Leader>s  :Unite -quick-match buffer<CR>
-  "nnoremap <Leader>n  :Unite -buffer-name=New -profile-name=files file/new<CR>
-
-  autocmd FileType unite call s:unite_my_settings()
-  function! s:unite_my_settings()
-    imap <silent><buffer> <C-k> <C-p>
-    imap <silent><buffer> <C-j> <C-n>
-    imap <silent><buffer> <C-d> <CR>
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    call unite#custom#source(
-          \ 'file_rec,file_rec/async',
-          \ 'ignore_pattern',
-          \ '(\.meta$|\.tmp|node_modules|jspm_packages)')
-  endfunction
+"  Plugins
+Plug 'kien/ctrlp.vim' "{
+  let g:ctrlp_working_path_mode = 'ra'
+  nnoremap <silent> <D-t> :CtrlP<CR>
+  nnoremap <silent> <D-r> :CtrlPMRU<CR>
+  let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
   if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
-    let g:unite_source_grep_default_opts = '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-                                        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-    let g:unite_source_grep_recursive_opt = ''
+      let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+  elseif executable('ack-grep')
+      let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+  elseif executable('ack')
+      let s:ctrlp_fallback = 'ack %s --nocolor -f'
+  " On Windows use "dir" as fallback command.
+  elseif WINDOWS()
+      let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+  else
+      let s:ctrlp_fallback = 'find %s -type f'
+  endif
+  if exists("g:ctrlp_user_command")
+      unlet g:ctrlp_user_command
+  endif
+  let g:ctrlp_user_command = {
+      \ 'types': {
+          \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+          \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+      \ },
+      \ 'fallback': s:ctrlp_fallback
+  \ }
+
+  if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+      " CtrlP extensions
+      let g:ctrlp_extensions = ['funky']
+
+      "funky
+      nnoremap <Leader>fu :CtrlPFunky<Cr>
   endif
 "}
 " ---------------------------------------------------------------------------
