@@ -34,9 +34,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'scro
   map <leader>b :Bookmark<CR>
   map <C-o> :NERDTreeTabsToggle<CR>
   nnoremap <leader>n :NERDTree .<CR>
+
   let NERDTreeChDirMode = 2
   let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+  let NERDTreeIgnore = ['\.py[cd]$',
+\  '\~$', '\.scssc$', '\.swo$', '\.swp$', '.sass-cache'
+\'^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '.DS_Store']
   let NERDTreeMinimalUI = 0
   let NERDTreeQuitOnOpen = 1
   let NERDTreeMouseMode = 2
