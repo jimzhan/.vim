@@ -53,8 +53,9 @@ Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree' "{
   let g:nerdtree_tabs_open_on_console_startup = 0
 
   " direct shortcuts for CRUD without marking.
-  autocmd FileType NERDTree nmap <buffer> <silent><Leader>n   m-a
+  autocmd FileType NERDTree nmap <buffer> <silent>dd   m-d
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>d   m-d
+  autocmd FileType NERDTree nmap <buffer> <silent><Leader>n   m-a
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>c   m-c
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>m   m-m
 "}
