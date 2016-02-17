@@ -112,6 +112,9 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
+nmap <silent> <Leader>+ :vertical resize +5<CR>
+"nnoremap <silent> <Leader>- :exe "resize -5"<CR>
+
 " ---------------------------------------------------------------------------
 "  Search
 " ---------------------------------------------------------------------------
@@ -167,7 +170,7 @@ nmap <leader>9 :set foldlevel=9<CR>
 " Buffer Switching
 " ----------------
 :nmap <C-l>     :bnext<CR>
-:nmap <C-h> :bprevious<CR>
+:nmap <C-h>     :bprevious<CR>
 :nmap <C-k>     :Bdelete<CR>
 " System Clipboard
 " ----------------

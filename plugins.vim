@@ -88,8 +88,8 @@ Plug 'Shougo/neomru.vim' | Plug 'Shougo/unite.vim' "{
 
   " ctrl-p style finder.
   nnoremap <C-p>      :Unite -buffer-name=files -start-insert -auto-resize file_rec/async:.<cr>
-  nnoremap <Leader>/  :Unite -buffer-name=finder grep:.<cr>
-  nnoremap <Leader>y  :Unite -buffer-name=yank history/yank<cr>
+  nnoremap <Leader>/  :Unite -buffer-name=grep  -start-insert -auto-resize grep:.<cr>
+  nnoremap <Leader>y  :Unite -buffer-name=yank  -start-insert -auto-resize history/yank<cr>
   nnoremap <Leader>s  :Unite -buffer-name=buffer -quick-match buffer<cr>
   nnoremap <Leader>n  :Unite -buffer-name=New -profile-name=files file/new<cr>
 
@@ -201,10 +201,11 @@ Plug 'fatih/vim-go' "{
   nnoremap <silent> <leader>bb :GoInstall<CR>
 "}
 " ---------------------------------------------------------------------------
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown' "{
   au BufRead,BufNewFile *.md set filetype=markdown
 "}
-Plug 'tpope/vim-haml'
+"
 " ---------------------------------------------------------------------------
 Plug 'othree/html5.vim'
 Plug 'lepture/vim-jinja'
