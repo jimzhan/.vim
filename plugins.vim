@@ -220,9 +220,11 @@ Plug 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'underscore,react'
 " ---------------------------------------------------------------------------
 Plug 'groenewege/vim-less'
-Plug 'vim-scripts/hybris-ImpEx'
 Plug 'leafgarland/typescript-vim'
 Plug 'clausreinke/typescript-tools.vim'
+Plug 'vim-scripts/hybris-ImpEx' "{
+  au BufRead,BufNewFile *.impex set filetype=impex
+"}
 
 
 " ---------------------------------------------------------------------------
