@@ -38,7 +38,7 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'Xuyuanp/nerd
   let NERDTreeChDirMode = 2
   let NERDTreeShowBookmarks=1
   let NERDTreeIgnore = ['\.py[cd]$',
-\  '\~$', '\.scssc$', '\.swo$', '\.swp$', '.sass-cache'
+\  '\~$', '\.git$', '\.scssc$', '\.swo$', '\.swp$', '.sass-cache'
 \'^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '.DS_Store']
   let NERDTreeMinimalUI = 0
   let NERDTreeQuitOnOpen = 1
