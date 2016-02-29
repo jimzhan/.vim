@@ -244,9 +244,11 @@ Plug 'scrooloose/syntastic' "{
   if has('balloon_eval')
     let g:syntastic_enable_balloons = 1
   endif
-  let g:syntastic_javascript_checkers = ['eslint']
 
   let g:syntastic_typescript_tsc_args = '--target ES7'
+  let g:syntastic_javascript_checkers = ['eslint']
+
+  autocmd FileType javascript :call dotvim.SyntasticESlintChecker()
 "}
 
 

@@ -207,6 +207,21 @@ function! dotvim.InitializePlugins()
 endfunction
 
 " ---------------------------------------------------------------------------
+function! dotvim.SyntasticESlintChecker()
+  let l:npm_bin = ''
+  let l:eslint = 'eslint'
+
+  if executable('npm')
+      let l:npm_bin = split(system('npm bin'), '\n')[0]
+  endif
+
+  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+    let l:eslint = l:npm_bin . '/eslint'
+  endif
+
+  let b:syntastic_javascript_eslint_exec = l:eslint
+endfunction
+
 " Make the ErrorSign of Syntastic in red along with default background color.
 function! dotvim.ResetSyntasticColors()
   exec 'hi SyntasticErrorSign guifg=#FF0000 ctermfg=196' .
