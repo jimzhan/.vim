@@ -30,7 +30,7 @@ Plug 'Shougo/vimshell.vim' | Plug 'Shougo/vimproc.vim', { 'do': 'make' } "{
 " ---------------------------------------------------------------------------
 "  Plugins: File Manager
 " ---------------------------------------------------------------------------
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'Xuyuanp/nerdtree-git-plugin' "{
+Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs' "{
   map <leader>b :Bookmark<CR>
   map <C-o> :NERDTreeTabsToggle<CR>
   nnoremap <leader>n :NERDTree .<CR>
@@ -59,20 +59,8 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'Xuyuanp/nerd
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>n   m-a
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>c   m-c
   autocmd FileType NERDTree nmap <buffer> <silent><Leader>m   m-m
-
-  " GIT status indicators
-  let g:NERDTreeIndicatorMapCustom = {
-      \ "Modified"  : "✹",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "═",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ "Unknown"   : "?"
-      \ }
 "}
+"
 " ---------------------------------------------------------------------------
 Plug 'Shougo/neomru.vim' | Plug 'Shougo/unite.vim' "{
   let g:unite_prompt              = '➤ '
