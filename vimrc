@@ -199,7 +199,7 @@ call g:dotvim.InitializePlugins()
 " ---------------------------------------------------------------------------
 "  Local Settings
 " ---------------------------------------------------------------------------
-colorscheme base16-solarized
+colorscheme base16-solarized-dark
 if filereadable(expand('$HOME/.vimrc.local'))
   source $HOME/.vimrc.local
 endif
