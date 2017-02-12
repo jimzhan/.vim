@@ -7,12 +7,12 @@ This is my *personal* vim bundle mainly for Mac, but it should also work on Linu
 Prerequisites
 =============
 
-* Updated Vim Version
+* Updated Vim Version (>=8.0)
 * Build Tools Supports
 
 ```sh
 brew install cmake ctags
-brew install --HEAD --override-system-vi --with-lua --with-luajit vim
+brew install --HEAD --with-override-system-vi --with-lua --with-luajit --with-python3 vim
 brew linkapps
 ```
 
