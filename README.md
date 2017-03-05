@@ -13,7 +13,7 @@ Prerequisites
 
 ```sh
 brew install cmake ctags
-brew install --HEAD --override-system-vi --with-lua --with-luajit vim
+brew install --HEAD --with-lua --with-luajit --with-override-system-vi vim
 brew linkapps
 ```
 
