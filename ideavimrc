@@ -1,40 +1,54 @@
-let mapleader=","
-
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/.undo
+endif
+" ---------------------------------------------------------------------------
+"  General
+" ---------------------------------------------------------------------------"
 set nocompatible
-filetype plugin indent on
+filetype plugin indent on     " Automatically detect file types. (must turn on after Vundle)
+set wildmode=list:longest     " use emacs-style tab completion when selecting files, etc
+set hidden                    " Change buffer - without saving
+set autowriteall              " Writes on make/shell commands
+" set foldmethod=syntax
+set foldlevel=20
+set formatoptions=crql
+set iskeyword+=$,@,-          " Add extra characters that are valid parts of variables
+set tags=./tags;/,tags;/
+set splitright
+if version >= 704
+  set completeopt=menu,noinsert,noselect
+endif
 
-set t_Co=256            " use 265 colors in vim
-syntax on
-
-set tags=./tags,tags
-set nocompatible
-set modelines=0
-
+" Text Format {{{
 set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=2 " Tabs under smart indent
 set expandtab
+set encoding=utf-8
+" }}}
+
+set noerrorbells
+set novisualbell
+
+set mousehide  " Hide mouse after chars typed
+set mouse=a  " Mouse in all modes
 
 set pastetoggle=<F2>
-set encoding=utf-8
 set scrolloff=3
 set autoindent
 set showmode
 set showcmd
 set ruler
 set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set relativenumber
 set number
-set undofile
 set cursorline
 
-
+" ---------------------------------------------------------------------------
+"  Searching
+" ---------------------------------------------------------------------------
 set ignorecase
 set smartcase
 set gdefault
@@ -42,38 +56,23 @@ set incsearch
 set showmatch
 set hlsearch
 
-nnoremap <esc> :noh<return><esc>
-nnoremap <tab> %
-vnoremap <tab> %
+" ---------------------------------------------------------------------------
+"   User Interface 
+" ---------------------------------------------------------------------------"
+set t_Co=256            " use 265 colors in vim
+syntax on
 
-nnoremap j gj
-nnoremap k gk
 
-noremap <F1> <ESC>
+" ---------------------------------------------------------------------------
+" Key mapping 
+" ---------------------------------------------------------------------------"
+let mapleader=","
 
-nnoremap ; :
-
-nnoremap <leader>w <C-w>s<C-w>j
-nnoremap <leader>e <C-w>v<C-w>l
-nnoremap <leader>q :bd<CR>
-nnoremap <leader>r <C-w>o
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-filetype plugin on
-set ofu=syntaxcomplete#Complete
-
-"--------------------------------------------------
-" Editing Shortcuts
-"--------------------------------------------------
 vmap <Leader>y "+y
 map  <Leader>x "+x
 map  <Leader>p "+p
 
-"--------------------------------------------------
-" IDEA Actions
-"--------------------------------------------------
+" ---------------------------------------------------------------------------
+" Key mapping - IDEA Actions.
+" ---------------------------------------------------------------------------"
 nnoremap <leader>nf :action NewFile<CR>
-
