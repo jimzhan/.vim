@@ -38,6 +38,7 @@ runtime! ext/syntastic.vim
 runtime! ext/ack.vim
 runtime! ext/ctrlp.vim
 runtime! ext/nerdtree.vim
+runtime! ext/tmux.vim
 
 " ---------------------------------------------------------------------------
 call plug#end()
