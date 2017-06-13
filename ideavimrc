@@ -76,3 +76,6 @@ map  <Leader>p "+p
 " Key mapping - IDEA Actions.
 " ---------------------------------------------------------------------------"
 nnoremap <leader>nf :action NewFile<CR>
+nnoremap <leader>c  :action Compile<CR>
+nnoremap <leader>c  :action CompileDirty<CR>
+
