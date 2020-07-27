@@ -19,14 +19,14 @@ Plug 'godlygeek/tabular' "{{{
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 "}}}
-"
+
 Plug 'mattn/emmet-vim' "{{{
   let g:user_emmet_settings = {
   \    'indentation' : '  '
   \}
   let g:user_emmet_expandabbr_key="<C-e>"
 "}}}
-"
+
 Plug 'ntpeters/vim-better-whitespace' "{{{
   let g:better_whitespace_enabled = 1
   let g:better_whitespace_filetypes_blacklist=['vimfiler']

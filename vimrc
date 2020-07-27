@@ -52,3 +52,4 @@ endif
 " ---------------------------------------------------------------------------
 colorscheme base16-solarized-dark
 call ResetSyntasticColors()
+
