@@ -26,7 +26,7 @@ Install
 Run the following line from your terminal
 
 ```sh
-git clone https://github.com/jimzhan/.vim $HOME
+cd $HOME && git clone https://github.com/jimzhan/.vim
 ```
 
 Key Mappings
