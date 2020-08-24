@@ -28,7 +28,7 @@ Install
 Run the following line from your terminal
 
 ```sh
-curl -s https://raw.githubusercontent.com/jimzhan/.vim/master/setup | sh
+git clone https://github.com/jimzhan/.vim $HOME
 ```
 
 Key Mappings
