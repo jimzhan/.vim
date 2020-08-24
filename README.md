@@ -11,8 +11,7 @@ Prerequisites
 * Build Tools Supports
 
 ```sh
-brew install cmake ctags
-brew install --HEAD --with-override-system-vi --with-lua --with-luajit --with-python3 vim
+brew install cmake ctags gettext lua perl python@ ruby
 brew linkapps
 ```
 
