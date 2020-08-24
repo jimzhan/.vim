@@ -11,8 +11,7 @@ Prerequisites
 * Build Tools Supports
 
 ```sh
-brew install cmake ctags gettext lua perl python@ ruby
-brew linkapps
+brew install cmake ctags gettext lua perl python ruby
 ```
 
 Features
