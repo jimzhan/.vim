@@ -27,11 +27,6 @@ Plug 'mattn/emmet-vim' "{{{
   let g:user_emmet_expandabbr_key="<C-e>"
 "}}}
 
-Plug 'ntpeters/vim-better-whitespace' "{{{
-  let g:better_whitespace_enabled = 1
-  let g:better_whitespace_filetypes_blacklist=['vimfiler']
-"}}}
-
 Plug 'mbbill/undotree' "{{{
   let g:undotree_WindowLayout = 4
   nnoremap <Leader>u :UndotreeToggle<cr>
